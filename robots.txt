@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cellmar.github.io/estudio-litoral/sitemap.xml
