@@ -80,6 +80,27 @@
   .area-item p{font-size:14px;color:var(--ink-soft)}
   @media (max-width:640px){ .area-list{grid-template-columns:1fr} }
 
+  /* Inquietudes */
+  section.faqs{padding:72px 0;border-bottom:1px solid var(--line)}
+  section.faqs h2{font-size:28px;margin-bottom:8px}
+  section.faqs > .wrap > p.sub{color:var(--ink-soft);max-width:560px;margin-bottom:40px}
+  .faq-group{border-top:1px solid var(--line)}
+  .faq-group summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 0;font-family:'Fraunces',serif;font-size:19px;
+  }
+  .faq-group summary::-webkit-details-marker{display:none}
+  .faq-group summary .plus{font-size:22px;color:var(--teal);transition:transform 0.2s}
+  .faq-group[open] summary .plus{transform:rotate(45deg)}
+  .faq-group .faq-body{padding-bottom:26px}
+  .faq-q{padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+  .faq-q:first-child{border-top:none}
+  .faq-q .q{color:var(--ink);margin-bottom:4px}
+  .faq-q .a{color:var(--ink-soft);font-size:14px}
+  .faq-cta{margin-top:32px;font-size:15px}
+  .faq-cta a{color:var(--teal-deep);text-decoration:underline}
+
   /* Abonos */
   section.abonos{padding:72px 0;border-bottom:1px solid var(--line)}
   section.abonos h2{font-size:28px;margin-bottom:12px}
@@ -126,6 +147,7 @@
     </div>
     <div class="links">
       <a href="#areas">Áreas</a>
+      <a href="#faqs">Inquietudes</a>
       <a href="catalogo.html">Honorarios</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -174,6 +196,69 @@
         <p>Boletos de compraventa, usucapión, conflictos de dominio y regularización de propiedades.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="faqs" id="faqs">
+  <div class="wrap">
+    <h2>Lo que la gente se pregunta antes de consultar</h2>
+    <p class="sub">Cada área trae sus propias dudas. Estas son algunas de las más habituales — si la tuya no está, es justamente para eso que conviene hacer la consulta.</p>
+
+    <details class="faq-group">
+      <summary>Derecho penal <span class="plus">+</span></summary>
+      <div class="faq-body">
+        <div class="faq-q"><div class="q">¿Me pueden citar a declarar sin que yo sepa por qué?</div><div class="a">Depende de la etapa de la causa. Conviene revisar la citación antes de presentarse.</div></div>
+        <div class="faq-q"><div class="q">¿Qué hago si me detienen?</div><div class="a">Hay pasos concretos para pedir la presencia de un abogado desde el primer momento.</div></div>
+        <div class="faq-q"><div class="q">¿Puedo pedir que me reduzcan una medida cautelar?</div><div class="a">En muchos casos sí, mediante un pedido de morigeración fundado.</div></div>
+      </div>
+    </details>
+
+    <details class="faq-group">
+      <summary>Violencia familiar <span class="plus">+</span></summary>
+      <div class="faq-body">
+        <div class="faq-q"><div class="q">¿Cómo pido una medida de protección urgente?</div><div class="a">Se puede solicitar sin turno previo en los juzgados de familia o de garantías.</div></div>
+        <div class="faq-q"><div class="q">¿Qué pasa si no se cumple la exclusión del hogar?</div><div class="a">El incumplimiento se puede denunciar y agrava la situación procesal del denunciado.</div></div>
+        <div class="faq-q"><div class="q">¿Puedo seguir viendo a mis hijos igual?</div><div class="a">El régimen de comunicación se puede tramitar en paralelo a la medida de protección.</div></div>
+      </div>
+    </details>
+
+    <details class="faq-group">
+      <summary>Derecho de familia <span class="plus">+</span></summary>
+      <div class="faq-body">
+        <div class="faq-q"><div class="q">¿Cómo se calcula la cuota alimentaria?</div><div class="a">Se estima según ingresos, necesidades de los hijos y otros gastos compartidos.</div></div>
+        <div class="faq-q"><div class="q">¿Los dos tenemos que estar de acuerdo para divorciarnos?</div><div class="a">No, el divorcio puede tramitarse aunque una sola parte lo pida.</div></div>
+        <div class="faq-q"><div class="q">¿Qué pasa con la vivienda familiar?</div><div class="a">Hay criterios para definir su uso mientras se resuelven los demás puntos.</div></div>
+      </div>
+    </details>
+
+    <details class="faq-group">
+      <summary>Sucesiones <span class="plus">+</span></summary>
+      <div class="faq-body">
+        <div class="faq-q"><div class="q">¿Qué pasa si no hay testamento?</div><div class="a">La ley establece un orden de herederos que se aplica de forma automática.</div></div>
+        <div class="faq-q"><div class="q">¿Cuánto tarda un sucesorio?</div><div class="a">Varía según la cantidad de bienes y herederos, pero tiene un trámite ordenado y previsible.</div></div>
+        <div class="faq-q"><div class="q">¿Puedo vender un bien antes de terminar la sucesión?</div><div class="a">En algunos casos sí, con autorización judicial previa.</div></div>
+      </div>
+    </details>
+
+    <details class="faq-group">
+      <summary>Desalojos <span class="plus">+</span></summary>
+      <div class="faq-body">
+        <div class="faq-q"><div class="q">¿Cuánto tarda un desalojo por falta de pago?</div><div class="a">Depende del juzgado, pero hay una vía procesal específica más rápida que un juicio ordinario.</div></div>
+        <div class="faq-q"><div class="q">¿Puedo desalojar sin ir a juicio?</div><div class="a">A veces un intercambio de cartas documento resuelve la situación antes de litigar.</div></div>
+        <div class="faq-q"><div class="q">¿Qué pasa si el inquilino no se va aunque haya sentencia?</div><div class="a">Existe el mecanismo de lanzamiento con auxilio de la fuerza pública.</div></div>
+      </div>
+    </details>
+
+    <details class="faq-group">
+      <summary>Derechos reales <span class="plus">+</span></summary>
+      <div class="faq-body">
+        <div class="faq-q"><div class="q">¿Puedo escriturar con un boleto de compraventa viejo?</div><div class="a">Depende del estado del trámite y de si hay conformidad de todas las partes.</div></div>
+        <div class="faq-q"><div class="q">¿Qué es la usucapión y cuándo aplica?</div><div class="a">Es una vía para adquirir el dominio de un inmueble por posesión prolongada, bajo ciertos requisitos.</div></div>
+        <div class="faq-q"><div class="q">¿Cómo sé si un terreno tiene problemas de dominio?</div><div class="a">Se puede pedir un informe de dominio para verificar la situación antes de avanzar.</div></div>
+      </div>
+    </details>
+
+    <p class="faq-cta">¿Tu situación no encaja en ninguna de estas preguntas? <a href="https://wa.me/5491134242423" target="_blank" rel="noopener">Contanos qué te pasa y te decimos cómo seguir.</a></p>
   </div>
 </section>
 
