@@ -234,7 +234,7 @@
       <summary>Derecho penal <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Me pueden citar a declarar sin que yo sepa por qué?</div><div class="a">Depende de la etapa de la causa. Conviene revisar la citación antes de presentarse.</div></div>
-        <div class="faq-q"><div class="q">¿Qué hago si me detienen?</div><div class="a">Hay pasos concretos para pedir la presencia de un abogado desde el primer momento.</div></div>
+        <div class="faq-q"><div class="q">¿Qué hago si me detienen o quedo detenido?</div><div class="a">Hay pasos concretos para pedir la presencia de un abogado desde el primer momento.</div></div>
         <div class="faq-q"><div class="q">¿Puedo pedir que me reduzcan una medida cautelar?</div><div class="a">En muchos casos sí, mediante un pedido de morigeración fundado.</div></div>
       </div>
     </details>
@@ -252,7 +252,7 @@
       <summary>Derecho de familia <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Cómo se calcula la cuota alimentaria?</div><div class="a">Se estima según ingresos, necesidades de los hijos y otros gastos compartidos.</div></div>
-        <div class="faq-q"><div class="q">¿Los dos tenemos que estar de acuerdo para divorciarnos?</div><div class="a">No, el divorcio puede tramitarse aunque una sola parte lo pida.</div></div>
+        <div class="faq-q"><div class="q">¿Necesito el acuerdo del otro para iniciar el divorcio?</div><div class="a">No, el divorcio puede tramitarse aunque una sola parte lo pida.</div></div>
         <div class="faq-q"><div class="q">¿Qué pasa con la vivienda familiar?</div><div class="a">Hay criterios para definir su uso mientras se resuelven los demás puntos.</div></div>
       </div>
     </details>
@@ -260,7 +260,7 @@
     <details class="faq-group" id="faqGroup-sucesiones">
       <summary>Sucesiones <span class="plus">+</span></summary>
       <div class="faq-body">
-        <div class="faq-q"><div class="q">¿Qué pasa si no hay testamento?</div><div class="a">La ley establece un orden de herederos que se aplica de forma automática.</div></div>
+        <div class="faq-q"><div class="q">¿Qué pasa con la herencia si no hay testamento?</div><div class="a">La ley establece un orden de herederos que se aplica de forma automática.</div></div>
         <div class="faq-q"><div class="q">¿Cuánto tarda un sucesorio?</div><div class="a">Varía según la cantidad de bienes y herederos, pero tiene un trámite ordenado y previsible.</div></div>
         <div class="faq-q"><div class="q">¿Puedo vender un bien antes de terminar la sucesión?</div><div class="a">En algunos casos sí, con autorización judicial previa.</div></div>
       </div>
@@ -269,7 +269,7 @@
     <details class="faq-group" id="faqGroup-desalojos">
       <summary>Desalojos <span class="plus">+</span></summary>
       <div class="faq-body">
-        <div class="faq-q"><div class="q">¿Cuánto tarda un desalojo por falta de pago?</div><div class="a">Depende del juzgado, pero hay una vía procesal específica más rápida que un juicio ordinario.</div></div>
+        <div class="faq-q"><div class="q">¿Cuánto tarda un desalojo por falta de pago del alquiler?</div><div class="a">Depende del juzgado, pero hay una vía procesal específica más rápida que un juicio ordinario.</div></div>
         <div class="faq-q"><div class="q">¿Puedo desalojar sin ir a juicio?</div><div class="a">A veces un intercambio de cartas documento resuelve la situación antes de litigar.</div></div>
         <div class="faq-q"><div class="q">¿Qué pasa si el inquilino no se va aunque haya sentencia?</div><div class="a">Existe el mecanismo de lanzamiento con auxilio de la fuerza pública.</div></div>
       </div>
@@ -332,23 +332,29 @@
 </footer>
 
 <script>
+function normalizeText(s){
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
 function filterFaqs(){
-  var term = document.getElementById('faqSearch').value.trim().toLowerCase();
+  var term = normalizeText(document.getElementById('faqSearch').value.trim());
   var groups = document.querySelectorAll('.faq-group');
   var anyVisible = false;
   groups.forEach(function(group){
     var items = group.querySelectorAll('.faq-q');
     var groupMatch = false;
     items.forEach(function(item){
-      var text = item.textContent.toLowerCase();
+      var text = normalizeText(item.textContent);
       var match = term === '' || text.indexOf(term) !== -1;
       item.style.display = match ? '' : 'none';
       if(match) groupMatch = true;
     });
     group.style.display = groupMatch ? '' : 'none';
-    if(groupMatch){
+    if(groupMatch && term !== ''){
       anyVisible = true;
-      if(term !== '') group.open = true;
+      group.open = true;
+    } else if(term === ''){
+      anyVisible = true;
+      group.open = false;
     } else {
       group.open = false;
     }

@@ -114,6 +114,8 @@
   section.services{padding:64px 0;border-bottom:1px solid var(--line)}
   section.services h2{font-size:26px;margin-bottom:36px}
   table.services-table{width:100%;border-collapse:collapse;font-size:14px}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  @media (max-width:640px){ table.services-table{min-width:560px} }
   table.services-table th{
     text-align:left;font-family:'Inter',sans-serif;font-weight:600;
     padding:12px 8px;border-bottom:1px solid var(--ink);color:var(--ink-soft);font-size:13px;
@@ -192,7 +194,7 @@
       <div class="plan">
         <h3>Empresarial</h3>
         <div class="audience">Empresas e inmobiliarias</div>
-        <div class="price">13.5 Jus</div>
+        <div class="price">13,5 Jus</div>
         <div class="price-sub">$718.632 / mes</div>
         <p class="desc">Abogado de cabecera para temas recurrentes: locaciones, desalojos, cobranzas. Prioridad de respuesta y descuento si el caso escala a juicio.</p>
         <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
@@ -200,7 +202,7 @@
       <div class="plan">
         <h3>Acompañamiento en violencia familiar</h3>
         <div class="audience">Primer mes / meses siguientes</div>
-        <div class="price">8.5 Jus → 3.5 Jus</div>
+        <div class="price">8,5 Jus → 3,5 Jus</div>
         <div class="price-sub">$452.472 primer mes, luego $186.312 / mes</div>
         <p class="desc">Seguimiento sostenido de 3 a 6 meses: medidas de protección, régimen de comunicación y causa penal paralela.</p>
         <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
@@ -222,7 +224,7 @@
       </div>
       <div class="oneoff-card">
         <h3>Consulta virtual</h3>
-        <div class="price">1.5 Jus — $79.848</div>
+        <div class="price">1,5 Jus — $79.848</div>
         <p class="desc">Videollamada de hasta 45 minutos para exponer el caso y recibir orientación en tiempo real. Incluye un resumen escrito posterior con lo conversado.</p>
         <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
       </div>
@@ -232,7 +234,7 @@
 
 <section class="pago" id="pago">
   <div class="wrap">
-    <h2>Cómo funciona una consulta virtual</h2>
+    <h2>Cómo pagar y agendar tu consulta</h2>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">Paso 1</div>
@@ -247,10 +249,10 @@
         </div>
       </div>
       <div class="step-card">
-        <div class="step-num">Paso 2</div>
+        <div class="step-num">Paso 2 — solo para consultas virtuales</div>
         <h3>Agendá tu horario</h3>
-        <p class="desc">Elegí el día y horario que te quede cómodo. La reunión se hace por Google Meet — el link te llega automáticamente al confirmar.</p>
-        <a class="btn-schedule" href="https://calendar.app.google/GhuK9e33eMkVfTRP9" target="_blank" rel="noopener">Agendar la consulta</a>
+        <p class="desc">Elegí el día y horario que te quede cómodo. La reunión se hace por Google Meet — el link te llega automáticamente al confirmar. Si contrataste la consulta por escrito o un abono, no hace falta agendar: mandá el comprobante por WhatsApp y arrancamos directo.</p>
+        <a class="btn-schedule" href="https://calendar.app.google/GhuK9e33eMkVfTRP9" target="_blank" rel="noopener">Agendar la consulta virtual</a>
       </div>
     </div>
   </div>
@@ -259,6 +261,7 @@
 <section class="services">
   <div class="wrap">
     <h2>Áreas de práctica</h2>
+    <div class="table-scroll">
     <table class="services-table">
       <tr><th>Área</th><th>Qué incluye</th><th></th></tr>
       <tr>
@@ -292,6 +295,7 @@
         <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
     </table>
+    </div>
   </div>
 </section>
 
