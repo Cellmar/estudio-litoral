@@ -79,6 +79,16 @@
   .plan p.desc{font-size:14px;color:var(--ink-soft);flex:1}
   @media (max-width:760px){ .plan-grid{grid-template-columns:1fr} }
 
+  section.oneoff-section{padding:64px 0;border-bottom:1px solid var(--line)}
+  section.oneoff-section h2{font-size:26px;margin-bottom:12px}
+  section.oneoff-section > .wrap > p.sub{color:var(--ink-soft);max-width:560px;margin-bottom:36px}
+  .oneoff-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .oneoff-card{background:var(--surface);border:1px solid var(--line);padding:28px 24px}
+  .oneoff-card h3{font-size:17px;margin-bottom:6px}
+  .oneoff-card .price{font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--teal-deep);margin-bottom:14px}
+  .oneoff-card p.desc{font-size:14px;color:var(--ink-soft)}
+  @media (max-width:640px){ .oneoff-grid{grid-template-columns:1fr} }
+
   section.services{padding:64px 0;border-bottom:1px solid var(--line)}
   section.services h2{font-size:26px;margin-bottom:36px}
   table.services-table{width:100%;border-collapse:collapse;font-size:14px}
@@ -168,6 +178,25 @@
         <div class="price">8.5 Jus → 3.5 Jus</div>
         <div class="price-sub">$452.472 primer mes, luego $186.312 / mes</div>
         <p class="desc">Seguimiento sostenido de 3 a 6 meses: medidas de protección, régimen de comunicación y causa penal paralela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oneoff-section" id="consultas">
+  <div class="wrap">
+    <h2>Consultas individuales</h2>
+    <p class="sub">Para quienes necesitan una respuesta puntual, sin abono mensual.</p>
+    <div class="oneoff-grid">
+      <div class="oneoff-card">
+        <h3>Consulta por escrito</h3>
+        <div class="price">1 Jus — $53.232</div>
+        <p class="desc">Envío del caso por WhatsApp o email y respuesta fundada por escrito, con marco legal aplicable y próximos pasos sugeridos. Respuesta en 48 a 72 horas hábiles.</p>
+      </div>
+      <div class="oneoff-card">
+        <h3>Consulta virtual</h3>
+        <div class="price">1.5 Jus — $79.848</div>
+        <p class="desc">Videollamada de hasta 45 minutos para exponer el caso y recibir orientación en tiempo real. Incluye un resumen escrito posterior con lo conversado.</p>
       </div>
     </div>
   </div>
