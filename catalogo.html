@@ -89,6 +89,21 @@
   .oneoff-card p.desc{font-size:14px;color:var(--ink-soft)}
   @media (max-width:640px){ .oneoff-grid{grid-template-columns:1fr} }
 
+  section.pago{padding:64px 0;border-bottom:1px solid var(--line)}
+  section.pago h2{font-size:26px;margin-bottom:12px}
+  section.pago .pago-box{
+    display:flex;gap:40px;align-items:center;flex-wrap:wrap;
+    background:var(--surface);border:1px solid var(--line);padding:32px;
+  }
+  section.pago img{width:180px;height:auto;border:1px solid var(--line)}
+  section.pago .pago-info p.sub{color:var(--ink-soft);font-size:14px;margin-bottom:18px;max-width:420px}
+  section.pago .alias-row{
+    display:flex;align-items:center;gap:12px;background:var(--teal-tint);
+    padding:12px 18px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--teal-deep);
+    width:fit-content;
+  }
+  section.pago .alias-label{font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-soft);margin-bottom:6px}
+
   section.services{padding:64px 0;border-bottom:1px solid var(--line)}
   section.services h2{font-size:26px;margin-bottom:36px}
   table.services-table{width:100%;border-collapse:collapse;font-size:14px}
@@ -132,6 +147,7 @@
     <div class="links">
       <a href="index.html#areas">Áreas</a>
       <a href="catalogo.html">Honorarios</a>
+      <a href="catalogo.html#pago">Pagar</a>
       <a href="index.html#contacto">Contacto</a>
     </div>
     <a class="nav-cta" href="https://wa.me/5491134242423" target="_blank" rel="noopener">Escribinos</a>
@@ -164,6 +180,7 @@
         <div class="price">4 Jus</div>
         <div class="price-sub">$212.928 / mes</div>
         <p class="desc">Consultas periódicas por WhatsApp o videollamada, revisión de contratos y cartas documento. No incluye representación judicial, que se cotiza aparte.</p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
       </div>
       <div class="plan">
         <h3>Empresarial</h3>
@@ -171,6 +188,7 @@
         <div class="price">13.5 Jus</div>
         <div class="price-sub">$718.632 / mes</div>
         <p class="desc">Abogado de cabecera para temas recurrentes: locaciones, desalojos, cobranzas. Prioridad de respuesta y descuento si el caso escala a juicio.</p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
       </div>
       <div class="plan">
         <h3>Acompañamiento en violencia familiar</h3>
@@ -178,6 +196,7 @@
         <div class="price">8.5 Jus → 3.5 Jus</div>
         <div class="price-sub">$452.472 primer mes, luego $186.312 / mes</div>
         <p class="desc">Seguimiento sostenido de 3 a 6 meses: medidas de protección, régimen de comunicación y causa penal paralela.</p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
       </div>
     </div>
   </div>
@@ -192,11 +211,27 @@
         <h3>Consulta por escrito</h3>
         <div class="price">1 Jus — $53.232</div>
         <p class="desc">Envío del caso por WhatsApp o email y respuesta fundada por escrito, con marco legal aplicable y próximos pasos sugeridos. Respuesta en 48 a 72 horas hábiles.</p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
       </div>
       <div class="oneoff-card">
         <h3>Consulta virtual</h3>
         <div class="price">1.5 Jus — $79.848</div>
         <p class="desc">Videollamada de hasta 45 minutos para exponer el caso y recibir orientación en tiempo real. Incluye un resumen escrito posterior con lo conversado.</p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pago" id="pago">
+  <div class="wrap">
+    <h2>Cómo pagar tu consulta</h2>
+    <div class="pago-box">
+      <img src="qr-pago.jpg" alt="Código QR para pagar con Mercado Pago">
+      <div class="pago-info">
+        <p class="sub">Escaneá el código con la app de tu banco o Mercado Pago, o transferí directamente al alias. Una vez hecho el pago, mandá el comprobante por WhatsApp para coordinar la consulta.</p>
+        <div class="alias-label">Alias</div>
+        <div class="alias-row">dogma.codos.alpes.mp</div>
       </div>
     </div>
   </div>
@@ -206,30 +241,36 @@
   <div class="wrap">
     <h2>Áreas de práctica</h2>
     <table class="services-table">
-      <tr><th>Área</th><th>Qué incluye</th></tr>
+      <tr><th>Área</th><th>Qué incluye</th><th></th></tr>
       <tr>
         <td class="area">Derecho penal</td>
         <td class="note">Defensa desde la instrucción hasta el juicio, medidas cautelares, recursos. Se cotiza por instancia según complejidad.</td>
+        <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
       <tr>
         <td class="area">Violencia familiar</td>
         <td class="note">Medidas de protección y acompañamiento. Ver plan de abono específico arriba.</td>
+        <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
       <tr>
         <td class="area">Derecho de familia</td>
         <td class="note">Divorcios, régimen de comunicación, cuidado personal y acuerdos. Se cotiza por trámite.</td>
+        <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
       <tr>
         <td class="area">Sucesiones</td>
         <td class="note">Inicio y tramitación del sucesorio, partición de bienes. Honorarios sobre el valor del acervo según la ley.</td>
+        <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
       <tr>
         <td class="area">Desalojos</td>
         <td class="note">Recuperación de inmuebles ocupados o con contrato vencido. Se cotiza por instancia procesal.</td>
+        <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
       <tr>
         <td class="area">Derechos reales</td>
         <td class="note">Boletos de compraventa, usucapión, conflictos de dominio. Se cotiza según el tipo de trámite.</td>
+        <td class="note"><a href="https://wa.me/5491134242423" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline">Consultar</a></td>
       </tr>
     </table>
   </div>

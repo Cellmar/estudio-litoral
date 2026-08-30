@@ -78,6 +78,8 @@
   .area-item{background:var(--surface);padding:26px 28px}
   .area-item h3{font-size:18px;margin-bottom:8px}
   .area-item p{font-size:14px;color:var(--ink-soft)}
+  .area-item p.example{font-size:13px;color:var(--ink-soft);font-style:italic;margin-top:10px;border-left:2px solid var(--line);padding-left:10px}
+  .area-item a.consult{display:inline-block;margin-top:14px;font-size:13px;color:var(--teal-deep);text-decoration:underline}
   @media (max-width:640px){ .area-list{grid-template-columns:1fr} }
 
   /* Inquietudes */
@@ -100,6 +102,13 @@
   .faq-q .a{color:var(--ink-soft);font-size:14px}
   .faq-cta{margin-top:32px;font-size:15px}
   .faq-cta a{color:var(--teal-deep);text-decoration:underline}
+  .faq-search{
+    width:100%;max-width:420px;padding:12px 16px;font-family:'Inter',sans-serif;
+    font-size:15px;border:1px solid var(--ink-soft);border-radius:4px;
+    background:var(--surface);color:var(--ink);margin-bottom:32px;
+  }
+  .faq-search:focus{outline:2px solid var(--teal);outline-offset:1px}
+  .faq-empty{display:none;color:var(--ink-soft);font-size:14px;padding:20px 0}
 
   /* Abonos */
   section.abonos{padding:72px 0;border-bottom:1px solid var(--line)}
@@ -174,26 +183,38 @@
       <div class="area-item">
         <h3>Derecho penal</h3>
         <p>Defensa en causas penales, desde la instrucción hasta el juicio. Seguimiento de medidas cautelares y recursos.</p>
+        <p class="example">Ej.: te citan a indagatoria y no sabés bien de qué trata la causa.</p>
+        <a class="consult" href="https://wa.me/5491134242423?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20un%20tema%20de%20derecho%20penal" target="_blank" rel="noopener">Consultar esta área →</a>
       </div>
       <div class="area-item">
         <h3>Violencia familiar</h3>
         <p>Medidas de protección, acompañamiento en el proceso y seguimiento de causas conexas.</p>
+        <p class="example">Ej.: necesitás una exclusión del hogar urgente mientras sigue la convivencia.</p>
+        <a class="consult" href="https://wa.me/5491134242423?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20un%20tema%20de%20violencia%20familiar" target="_blank" rel="noopener">Consultar esta área →</a>
       </div>
       <div class="area-item">
         <h3>Derecho de familia</h3>
         <p>Divorcios, régimen de comunicación, cuidado personal y acuerdos entre partes.</p>
+        <p class="example">Ej.: divorcio con desacuerdo sobre el régimen de comunicación con los hijos.</p>
+        <a class="consult" href="https://wa.me/5491134242423?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20un%20tema%20de%20derecho%20de%20familia" target="_blank" rel="noopener">Consultar esta área →</a>
       </div>
       <div class="area-item">
         <h3>Sucesiones</h3>
         <p>Inicio y tramitación de sucesorios, partición de bienes y representación de herederos.</p>
+        <p class="example">Ej.: un fallecimiento sin testamento con herederos en distintas provincias.</p>
+        <a class="consult" href="https://wa.me/5491134242423?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20una%20sucesi%C3%B3n" target="_blank" rel="noopener">Consultar esta área →</a>
       </div>
       <div class="area-item">
         <h3>Desalojos</h3>
         <p>Recuperación de inmuebles ocupados o con contratos vencidos, con estrategia procesal ajustada a cada caso.</p>
+        <p class="example">Ej.: un inquilino con el alquiler vencido hace más de un año, sin responder intimaciones.</p>
+        <a class="consult" href="https://wa.me/5491134242423?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20un%20desalojo" target="_blank" rel="noopener">Consultar esta área →</a>
       </div>
       <div class="area-item">
         <h3>Derechos reales</h3>
         <p>Boletos de compraventa, usucapión, conflictos de dominio y regularización de propiedades.</p>
+        <p class="example">Ej.: un boleto de compraventa viejo, sin escriturar, con el vendedor ya fallecido.</p>
+        <a class="consult" href="https://wa.me/5491134242423?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20un%20tema%20de%20derechos%20reales" target="_blank" rel="noopener">Consultar esta área →</a>
       </div>
     </div>
   </div>
@@ -204,7 +225,10 @@
     <h2>Lo que la gente se pregunta antes de consultar</h2>
     <p class="sub">Cada área trae sus propias dudas. Estas son algunas de las más habituales — si la tuya no está, es justamente para eso que conviene hacer la consulta.</p>
 
-    <details class="faq-group">
+    <input type="text" class="faq-search" id="faqSearch" placeholder="Buscá tu duda, por ejemplo &quot;cuánto tarda un desalojo&quot;" oninput="filterFaqs()">
+    <p class="faq-empty" id="faqEmpty">No encontramos preguntas con esas palabras — probá con otros términos, o escribinos directamente por WhatsApp.</p>
+
+    <details class="faq-group" id="faqGroup-penal">
       <summary>Derecho penal <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Me pueden citar a declarar sin que yo sepa por qué?</div><div class="a">Depende de la etapa de la causa. Conviene revisar la citación antes de presentarse.</div></div>
@@ -213,7 +237,7 @@
       </div>
     </details>
 
-    <details class="faq-group">
+    <details class="faq-group" id="faqGroup-violencia">
       <summary>Violencia familiar <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Cómo pido una medida de protección urgente?</div><div class="a">Se puede solicitar sin turno previo en los juzgados de familia o de garantías.</div></div>
@@ -222,7 +246,7 @@
       </div>
     </details>
 
-    <details class="faq-group">
+    <details class="faq-group" id="faqGroup-familia">
       <summary>Derecho de familia <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Cómo se calcula la cuota alimentaria?</div><div class="a">Se estima según ingresos, necesidades de los hijos y otros gastos compartidos.</div></div>
@@ -231,7 +255,7 @@
       </div>
     </details>
 
-    <details class="faq-group">
+    <details class="faq-group" id="faqGroup-sucesiones">
       <summary>Sucesiones <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Qué pasa si no hay testamento?</div><div class="a">La ley establece un orden de herederos que se aplica de forma automática.</div></div>
@@ -240,7 +264,7 @@
       </div>
     </details>
 
-    <details class="faq-group">
+    <details class="faq-group" id="faqGroup-desalojos">
       <summary>Desalojos <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Cuánto tarda un desalojo por falta de pago?</div><div class="a">Depende del juzgado, pero hay una vía procesal específica más rápida que un juicio ordinario.</div></div>
@@ -249,7 +273,7 @@
       </div>
     </details>
 
-    <details class="faq-group">
+    <details class="faq-group" id="faqGroup-reales">
       <summary>Derechos reales <span class="plus">+</span></summary>
       <div class="faq-body">
         <div class="faq-q"><div class="q">¿Puedo escriturar con un boleto de compraventa viejo?</div><div class="a">Depende del estado del trámite y de si hay conformidad de todas las partes.</div></div>
@@ -305,5 +329,30 @@
   </div>
 </footer>
 
+<script>
+function filterFaqs(){
+  var term = document.getElementById('faqSearch').value.trim().toLowerCase();
+  var groups = document.querySelectorAll('.faq-group');
+  var anyVisible = false;
+  groups.forEach(function(group){
+    var items = group.querySelectorAll('.faq-q');
+    var groupMatch = false;
+    items.forEach(function(item){
+      var text = item.textContent.toLowerCase();
+      var match = term === '' || text.indexOf(term) !== -1;
+      item.style.display = match ? '' : 'none';
+      if(match) groupMatch = true;
+    });
+    group.style.display = groupMatch ? '' : 'none';
+    if(groupMatch){
+      anyVisible = true;
+      if(term !== '') group.open = true;
+    } else {
+      group.open = false;
+    }
+  });
+  document.getElementById('faqEmpty').style.display = anyVisible ? 'none' : 'block';
+}
+</script>
 </body>
 </html>
