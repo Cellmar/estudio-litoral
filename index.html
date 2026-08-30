@@ -5,6 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Estudio Litoral — Abogados en Escobar</title>
 <meta name="description" content="Estudio Litoral: patrocinio letrado en derecho penal, violencia familiar, sucesiones, desalojos y derechos reales. Belén de Escobar, Buenos Aires.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="Estudio Litoral — Abogados en Escobar">
+<meta property="og:description" content="Patrocinio letrado en derecho penal, violencia familiar, sucesiones, desalojos y derechos reales. Belén de Escobar, Buenos Aires.">
+<meta property="og:image" content="https://cellmar.github.io/estudio-litoral/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cellmar.github.io/estudio-litoral/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Attorney",
+  "name": "Estudio Litoral",
+  "founder": "Gustavo Alejandro Martínez",
+  "areaServed": "Zárate-Campana, Buenos Aires",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Belén de Escobar",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "telephone": "+5491134242423",
+  "description": "Patrocinio letrado en derecho penal, violencia familiar, sucesiones, desalojos y derechos reales."
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -53,7 +77,26 @@
     display:inline-block;background:var(--teal);color:#fff;
     padding:9px 18px;border-radius:4px;font-size:14px;text-decoration:none;
   }
-  @media (max-width:640px){ nav .links{display:none} }
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .hamburger{
+    display:none;flex-direction:column;gap:5px;background:none;border:none;
+    cursor:pointer;padding:6px;
+  }
+  .hamburger span{width:22px;height:2px;background:var(--ink);display:block}
+  .mobile-menu{display:none}
+  @media (max-width:640px){
+    nav .links{display:none}
+    .hamburger{display:flex}
+    .mobile-menu.open{
+      display:flex;flex-direction:column;gap:2px;
+      background:var(--paper);border-bottom:1px solid var(--line);
+      padding:8px 24px 16px;
+    }
+    .mobile-menu a{
+      padding:12px 0;font-size:15px;text-decoration:none;color:var(--ink);
+      border-bottom:1px solid var(--line);
+    }
+  }
 
   /* Hero */
   header.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
@@ -139,6 +182,41 @@
 
   footer{padding:32px 0;border-top:1px solid var(--line)}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-soft)}
+
+  /* Floating WhatsApp */
+  .wa-float{
+    position:fixed;bottom:22px;right:22px;z-index:20;
+    background:#25D366;width:56px;height:56px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);text-decoration:none;
+  }
+  .wa-float svg{width:28px;height:28px;fill:#fff}
+
+  /* Credenciales */
+  section.credenciales{padding:56px 0;border-bottom:1px solid var(--line)}
+  section.credenciales h2{font-size:22px;margin-bottom:20px}
+  .cred-list{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--ink-soft)}
+  .cred-list strong{color:var(--ink);font-weight:500}
+
+  /* Hero wave */
+  header.hero{position:relative;overflow:hidden}
+  .hero-wave{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.5;pointer-events:none;z-index:0}
+  header.hero .wrap{position:relative;z-index:1}
+  header.hero .kicker, header.hero h1, header.hero p.lead, .hero-actions{
+    opacity:0;animation:heroIn 0.7s ease forwards;
+  }
+  header.hero h1{animation-delay:0.1s}
+  header.hero p.lead{animation-delay:0.2s}
+  .hero-actions{animation-delay:0.3s}
+  @keyframes heroIn{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    header.hero .kicker, header.hero h1, header.hero p.lead, .hero-actions{
+      animation:none;opacity:1;
+    }
+  }
 </style>
 </head>
 <body>
@@ -160,11 +238,27 @@
       <a href="catalogo.html">Honorarios</a>
       <a href="#contacto">Contacto</a>
     </div>
-    <a class="nav-cta" href="https://wa.me/5491134242423" target="_blank" rel="noopener">Escribinos</a>
+    <div class="nav-right">
+      <a class="nav-cta" href="https://wa.me/5491134242423" target="_blank" rel="noopener">Escribinos</a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#areas" onclick="toggleMenu()">Áreas</a>
+    <a href="#faqs" onclick="toggleMenu()">Inquietudes</a>
+    <a href="catalogo.html">Honorarios</a>
+    <a href="#contacto" onclick="toggleMenu()">Contacto</a>
   </div>
 </nav>
 
 <header class="hero">
+  <svg class="hero-wave" viewBox="0 0 900 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 420 Q112 390 225 420 T450 420 T675 420 T900 420" stroke="#0F6E56" stroke-width="2" fill="none" opacity="0.25"/>
+    <path d="M0 450 Q112 420 225 450 T450 450 T675 450 T900 450" stroke="#0F6E56" stroke-width="2" fill="none" opacity="0.18"/>
+    <path d="M0 480 Q112 450 225 480 T450 480 T675 480 T900 480" stroke="#0F6E56" stroke-width="2" fill="none" opacity="0.12"/>
+  </svg>
   <div class="wrap">
     <p class="kicker">Belén de Escobar — Zárate-Campana</p>
     <h1>Asesoramiento legal claro, para decisiones que no pueden esperar.</h1>
@@ -324,6 +418,18 @@
   </div>
 </section>
 
+<section class="credenciales">
+  <div class="wrap">
+    <h2>Respaldo profesional</h2>
+    <div class="cred-list">
+      <div><strong>Dr. Gustavo Alejandro Martínez</strong> — Abogado</div>
+      <div>Colegio de Abogados de Zárate-Campana — T° III F° 362</div>
+      <div>CPACF — T° 56 F° 70</div>
+      <div>Matrícula federal (Ley 22.192) — T° 123 F° 598</div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <span>Estudio Litoral — Dr. Gustavo Alejandro Martínez</span>
@@ -331,6 +437,15 @@
   </div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/5491134242423" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.44.79 3.06 1.2 4.72 1.2h.02c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2zm5.87 14.14c-.25.7-1.45 1.33-2 1.42-.51.08-1.15.11-1.86-.12-.43-.13-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.77 1.27 1.65 2.06 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.83 2.07.98.3.15.5.23.57.36.08.13.08.75-.17 1.45z"/></svg>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
 <script>
 function normalizeText(s){
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
