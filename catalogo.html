@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de honorarios — Estudio Litoral</title>
+<meta name="description" content="Catálogo de honorarios y planes de abono de Estudio Litoral, calculados sobre la Ley 14.967 de honorarios de abogados de la provincia de Buenos Aires.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5EF;
+    --ink:#1C2E2B;
+    --ink-soft:#4B5B57;
+    --teal:#0F6E56;
+    --teal-deep:#085041;
+    --teal-tint:#E1F5EE;
+    --line:#D8D2C4;
+    --coral:#D85A30;
+    --surface:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em}
+  a{color:inherit}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(247,245,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:19px;font-weight:500;text-decoration:none;color:var(--ink)}
+  .brand svg{width:30px;height:30px}
+  nav .links{display:flex;gap:28px;font-size:14px;color:var(--ink-soft)}
+  nav .links a{text-decoration:none}
+  nav .links a:hover{color:var(--teal)}
+  .nav-cta{
+    display:inline-block;background:var(--teal);color:#fff;
+    padding:9px 18px;border-radius:4px;font-size:14px;text-decoration:none;
+  }
+  @media (max-width:640px){ nav .links{display:none} }
+
+  header.page-head{padding:64px 0 48px;border-bottom:1px solid var(--line)}
+  header.page-head p.kicker{color:var(--teal-deep);font-size:15px;margin-bottom:14px}
+  header.page-head h1{font-size:36px;max-width:600px}
+  header.page-head p.lead{margin-top:16px;font-size:17px;color:var(--ink-soft);max-width:560px}
+
+  section.jus-note{padding:32px 0;border-bottom:1px solid var(--line)}
+  .note-box{
+    background:var(--teal-tint);border-left:3px solid var(--teal);
+    padding:18px 22px;font-size:14px;color:var(--teal-deep);
+  }
+
+  section.plans{padding:64px 0;border-bottom:1px solid var(--line)}
+  section.plans h2{font-size:26px;margin-bottom:36px}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .plan{
+    background:var(--surface);border:1px solid var(--line);padding:28px 24px;
+    display:flex;flex-direction:column;
+  }
+  .plan h3{font-size:17px;margin-bottom:6px}
+  .plan .audience{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+  .plan .price{font-family:'IBM Plex Mono',monospace;font-size:22px;color:var(--teal-deep);margin-bottom:6px}
+  .plan .price-sub{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+  .plan p.desc{font-size:14px;color:var(--ink-soft);flex:1}
+  @media (max-width:760px){ .plan-grid{grid-template-columns:1fr} }
+
+  section.services{padding:64px 0;border-bottom:1px solid var(--line)}
+  section.services h2{font-size:26px;margin-bottom:36px}
+  table.services-table{width:100%;border-collapse:collapse;font-size:14px}
+  table.services-table th{
+    text-align:left;font-family:'Inter',sans-serif;font-weight:600;
+    padding:12px 8px;border-bottom:1px solid var(--ink);color:var(--ink-soft);font-size:13px;
+  }
+  table.services-table td{padding:16px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.services-table td.area{font-weight:500}
+  table.services-table td.note{color:var(--ink-soft);font-size:13px}
+
+  section.contact{padding:80px 0}
+  section.contact .box{
+    background:var(--teal);color:#fff;padding:48px 40px;border-radius:6px;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  section.contact h2{color:#fff;font-size:26px}
+  section.contact p{color:var(--teal-tint);margin-top:8px;font-size:15px}
+  .btn-white{
+    background:#fff;color:var(--teal-deep);padding:14px 26px;border-radius:4px;
+    text-decoration:none;font-size:15px;font-weight:500;white-space:nowrap;
+  }
+
+  footer{padding:32px 0;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" stroke="#0F6E56" stroke-width="4"/>
+        <path d="M28 44 Q40 36 50 44 T72 44" stroke="#0F6E56" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M28 56 Q40 48 50 56 T72 56" stroke="#0F6E56" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M28 68 Q40 60 50 68 T72 68" stroke="#0F6E56" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      Estudio Litoral
+    </a>
+    <div class="links">
+      <a href="index.html#areas">Áreas</a>
+      <a href="catalogo.html">Honorarios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/5491134242423" target="_blank" rel="noopener">Escribinos</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="kicker">Honorarios y planes</p>
+    <h1>Un catálogo transparente, calculado sobre la ley vigente.</h1>
+    <p class="lead">Los montos de referencia surgen de los pisos mínimos de la Ley 14.967 de honorarios de abogados de la provincia de Buenos Aires.</p>
+  </div>
+</header>
+
+<section class="jus-note">
+  <div class="wrap">
+    <div class="note-box">
+      Los valores de este catálogo se calculan sobre el jus arancelario vigente ($53.232, Res. RP 873/26 SCBA) y se actualizan semestralmente junto con ese valor. El monto final de cada caso depende de su complejidad y del convenio de honorarios firmado.
+    </div>
+  </div>
+</section>
+
+<section class="plans">
+  <div class="wrap">
+    <h2>Planes de abono</h2>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>Particular</h3>
+        <div class="audience">Consultas y seguimiento individual</div>
+        <div class="price">4 Jus</div>
+        <div class="price-sub">$212.928 / mes</div>
+        <p class="desc">Consultas periódicas por WhatsApp o videollamada, revisión de contratos y cartas documento. No incluye representación judicial, que se cotiza aparte.</p>
+      </div>
+      <div class="plan">
+        <h3>Empresarial</h3>
+        <div class="audience">Empresas e inmobiliarias</div>
+        <div class="price">13.5 Jus</div>
+        <div class="price-sub">$718.632 / mes</div>
+        <p class="desc">Abogado de cabecera para temas recurrentes: locaciones, desalojos, cobranzas. Prioridad de respuesta y descuento si el caso escala a juicio.</p>
+      </div>
+      <div class="plan">
+        <h3>Acompañamiento en violencia familiar</h3>
+        <div class="audience">Primer mes / meses siguientes</div>
+        <div class="price">8.5 Jus → 3.5 Jus</div>
+        <div class="price-sub">$452.472 primer mes, luego $186.312 / mes</div>
+        <p class="desc">Seguimiento sostenido de 3 a 6 meses: medidas de protección, régimen de comunicación y causa penal paralela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <h2>Áreas de práctica</h2>
+    <table class="services-table">
+      <tr><th>Área</th><th>Qué incluye</th></tr>
+      <tr>
+        <td class="area">Derecho penal</td>
+        <td class="note">Defensa desde la instrucción hasta el juicio, medidas cautelares, recursos. Se cotiza por instancia según complejidad.</td>
+      </tr>
+      <tr>
+        <td class="area">Violencia familiar</td>
+        <td class="note">Medidas de protección y acompañamiento. Ver plan de abono específico arriba.</td>
+      </tr>
+      <tr>
+        <td class="area">Derecho de familia</td>
+        <td class="note">Divorcios, régimen de comunicación, cuidado personal y acuerdos. Se cotiza por trámite.</td>
+      </tr>
+      <tr>
+        <td class="area">Sucesiones</td>
+        <td class="note">Inicio y tramitación del sucesorio, partición de bienes. Honorarios sobre el valor del acervo según la ley.</td>
+      </tr>
+      <tr>
+        <td class="area">Desalojos</td>
+        <td class="note">Recuperación de inmuebles ocupados o con contrato vencido. Se cotiza por instancia procesal.</td>
+      </tr>
+      <tr>
+        <td class="area">Derechos reales</td>
+        <td class="note">Boletos de compraventa, usucapión, conflictos de dominio. Se cotiza según el tipo de trámite.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <h2>¿Querés saber qué plan te conviene?</h2>
+        <p>Contanos tu situación y te decimos cuál se ajusta.</p>
+      </div>
+      <a class="btn-white" href="https://wa.me/5491134242423" target="_blank" rel="noopener">+54 9 11 3424-2423</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Estudio Litoral — Dr. Gustavo Alejandro Martínez</span>
+    <span>Belén de Escobar, Buenos Aires</span>
+  </div>
+</footer>
+
+</body>
+</html>
