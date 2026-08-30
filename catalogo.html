@@ -91,18 +91,25 @@
 
   section.pago{padding:64px 0;border-bottom:1px solid var(--line)}
   section.pago h2{font-size:26px;margin-bottom:12px}
-  section.pago .pago-box{
-    display:flex;gap:40px;align-items:center;flex-wrap:wrap;
-    background:var(--surface);border:1px solid var(--line);padding:32px;
-  }
-  section.pago img{width:180px;height:auto;border:1px solid var(--line)}
-  section.pago .pago-info p.sub{color:var(--ink-soft);font-size:14px;margin-bottom:18px;max-width:420px}
+  section.pago .steps{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+  section.pago .step-card{background:var(--surface);border:1px solid var(--line);padding:28px}
+  section.pago .step-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);margin-bottom:10px}
+  section.pago .step-card h3{font-size:17px;margin-bottom:14px}
+  section.pago .pago-box{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+  section.pago img{width:150px;height:auto;border:1px solid var(--line)}
+  section.pago .pago-info p.sub{color:var(--ink-soft);font-size:14px;margin-bottom:16px}
   section.pago .alias-row{
     display:flex;align-items:center;gap:12px;background:var(--teal-tint);
     padding:12px 18px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--teal-deep);
     width:fit-content;
   }
   section.pago .alias-label{font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-soft);margin-bottom:6px}
+  section.pago .step-card p.desc{color:var(--ink-soft);font-size:14px;margin-bottom:18px}
+  section.pago .btn-schedule{
+    display:inline-block;background:var(--teal);color:#fff;padding:12px 22px;
+    border-radius:4px;text-decoration:none;font-size:14px;
+  }
+  @media (max-width:720px){ section.pago .steps{grid-template-columns:1fr} }
 
   section.services{padding:64px 0;border-bottom:1px solid var(--line)}
   section.services h2{font-size:26px;margin-bottom:36px}
@@ -180,7 +187,7 @@
         <div class="price">4 Jus</div>
         <div class="price-sub">$212.928 / mes</div>
         <p class="desc">Consultas periódicas por WhatsApp o videollamada, revisión de contratos y cartas documento. No incluye representación judicial, que se cotiza aparte.</p>
-        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
       </div>
       <div class="plan">
         <h3>Empresarial</h3>
@@ -188,7 +195,7 @@
         <div class="price">13.5 Jus</div>
         <div class="price-sub">$718.632 / mes</div>
         <p class="desc">Abogado de cabecera para temas recurrentes: locaciones, desalojos, cobranzas. Prioridad de respuesta y descuento si el caso escala a juicio.</p>
-        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
       </div>
       <div class="plan">
         <h3>Acompañamiento en violencia familiar</h3>
@@ -196,7 +203,7 @@
         <div class="price">8.5 Jus → 3.5 Jus</div>
         <div class="price-sub">$452.472 primer mes, luego $186.312 / mes</div>
         <p class="desc">Seguimiento sostenido de 3 a 6 meses: medidas de protección, régimen de comunicación y causa penal paralela.</p>
-        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
       </div>
     </div>
   </div>
@@ -217,7 +224,7 @@
         <h3>Consulta virtual</h3>
         <div class="price">1.5 Jus — $79.848</div>
         <p class="desc">Videollamada de hasta 45 minutos para exponer el caso y recibir orientación en tiempo real. Incluye un resumen escrito posterior con lo conversado.</p>
-        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo pagar ↓</a></p>
+        <p style="margin-top:14px"><a href="#pago" style="color:var(--teal-deep);text-decoration:underline;font-size:14px">Ver cómo agendar y pagar ↓</a></p>
       </div>
     </div>
   </div>
@@ -225,13 +232,25 @@
 
 <section class="pago" id="pago">
   <div class="wrap">
-    <h2>Cómo pagar tu consulta</h2>
-    <div class="pago-box">
-      <img src="qr-pago.jpg" alt="Código QR para pagar con Mercado Pago">
-      <div class="pago-info">
-        <p class="sub">Escaneá el código con la app de tu banco o Mercado Pago, o transferí directamente al alias. Una vez hecho el pago, mandá el comprobante por WhatsApp para coordinar la consulta.</p>
-        <div class="alias-label">Alias</div>
-        <div class="alias-row">dogma.codos.alpes.mp</div>
+    <h2>Cómo funciona una consulta virtual</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">Paso 1</div>
+        <h3>Pagá tu consulta</h3>
+        <div class="pago-box">
+          <img src="qr-pago.jpg" alt="Código QR para pagar con Mercado Pago">
+          <div class="pago-info">
+            <p class="sub">Escaneá el código o transferí al alias. Guardá el comprobante.</p>
+            <div class="alias-label">Alias</div>
+            <div class="alias-row">dogma.codos.alpes.mp</div>
+          </div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Paso 2</div>
+        <h3>Agendá tu horario</h3>
+        <p class="desc">Elegí el día y horario que te quede cómodo. La reunión se hace por Google Meet — el link te llega automáticamente al confirmar.</p>
+        <a class="btn-schedule" href="https://calendar.app.google/GhuK9e33eMkVfTRP9" target="_blank" rel="noopener">Agendar la consulta</a>
       </div>
     </div>
   </div>
